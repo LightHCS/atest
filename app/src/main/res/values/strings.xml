@@ -1,0 +1,84 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- App Default -->
+    <string name="app_name">iAnime</string>
+    <string name="nav_home_title">Gallery</string>
+    <string name="nav_user_title">Mine</string>
+    <string name="setting_chinese">CN</string>
+    <string name="setting_english">EN</string>
+    <string name="change_zh_message">App language changed to Chinese</string>
+    <string name="change_en_message">App language changed to English</string>
+    <string name="user_screen_title" translatable="false">COMING SOON...</string>
+
+    <!-- Anime Detail Screen -->
+    <string name="intro_header_title">About</string>
+    <string name="anime_type_title">Type: %1$s</string>
+    <string name="anime_country_title">Country: %1$s</string>
+    <string name="anime_release_year_title">Published Year: %1$s</string>
+    <string name="anime_status_title">Status: %1$s</string>
+    <string name="maxim_header_title">Maxim</string>
+    <string name="episode_header_title">Favourite Episodes</string>
+    <string name="empty_description_message" tools:ignore="TypographyEllipsis">We need you to provide more information about this anime...</string>
+
+    <!-- Anime Data -->
+    <string name="country_china">China</string>
+    <string name="country_japan">Japan</string>
+    <string name="genre_legend">Legend</string>
+    <string name="genre_adventure">Adventure</string>
+    <string name="genre_love">Love</string>
+    <string name="genre_school">School</string>
+    <string name="genre_energy">Energy</string>
+    <string name="genre_sci">Sci-fi</string>
+    <string name="genre_mystery">Mystery</string>
+    <string name="genre_life">Life</string>
+    <string name="status_finish">Finished</string>
+    <string name="status_in_progress">In Progress</string>
+
+    <!-- Manage Anime Screen -->
+    <string name="add_anime_title">Add Anime</string>
+    <string name="edit_anime_title">Edit Anime</string>
+    <string name="select_image_title">Select Image +</string>
+    <string name="anime_name_english_hint">English Name</string>
+    <string name="anime_name_chinese_hint">Chinese Name</string>
+    <string name="anime_rate_hint">Rate (1–10)</string>
+    <string name="anime_year_hint">Time</string>
+    <string name="description_hint">Description</string>
+    <string name="anime_country_hint">Country</string>
+    <string-array name="country_selector">
+        <item>China</item>
+        <item>Japan</item>
+    </string-array>
+    <string name="anime_type_hint">Genre</string>
+    <string-array name="type_selector">
+        <item>Legend</item>
+        <item>Adventure</item>
+        <item>Love</item>
+        <item>School</item>
+        <item>Energy</item>
+        <item>Sci-fi</item>
+        <item>Mystery</item>
+        <item>Life</item>
+    </string-array>
+    <string name="anime_status_hint">Status</string>
+    <string-array name="status_selector">
+        <item>Finished</item>
+        <item>In Progress</item>
+    </string-array>
+    <string name="save_button_text">Save</string>
+    <string name="required_warning_msg">This field is required.</string>
+
+    <!-- Exit before Dialog  -->
+    <string name="exit_dialog_message">Are you sure you want to exit before saving?</string>
+    <string name="positive_button_label">No</string>
+    <string name="negative_button_label">Yes</string>
+    <string name="test_anime_country">China</string>
+    
+    <!-- Error Messages  -->
+    <string name="generic_error_label">Something Went Wrong</string>
+    <string name="generic_error_message">Please try again later.</string>
+    <string name="connection_error_label">Connection Interrupted</string>
+    <string name="connection_error_message">Your were disconnected from the app, please try again later.</string>
+    <string name="unauthorized_error_message">Something went wrong with your access, please connect the administrator and try again later.</string>
+    <string name="not_found_error_message">Unfortunately, the app could\'t find any anime information, please try again later.</string>
+    <string name="content_oversize_error_message">Your may send a really large image, please make sure your file size is less than 2MB and try again.</string>
+    <string name="bad_request_error_message">Something went wrong to process your request, please try again later.</string>
+</resources>

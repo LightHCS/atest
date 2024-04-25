@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".screens.manageanime.AddAnimeFragment">
+
+    <include
+        android:id="@id/top_app_bar"
+        layout="@layout/layout_action_bar" />
+
+    <LinearLayout
+        android:id="@+id/anime_details_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spacing_10dp"
+        android:layout_marginVertical="@dimen/spacing_16dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_app_bar">
+
+        <ImageView
+            android:id="@+id/profile_preview"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/anime_edit_card_height"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_default_image" />
+
+        <Button
+            android:id="@+id/add_cover_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/select_image_title" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_16dp"
+            android:layout_marginBottom="@dimen/spacing_4dp"
+            android:orientation="horizontal">
+
+            <com.project.ianime.widget.AnimeEditText
+                android:id="@+id/manage_chinese_name"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/spacing_8dp"
+                android:layout_weight="1"
+                android:hint="@string/anime_name_chinese_hint"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/customErrorEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.project.ianime.widget.AnimeEditText>
+
+            <com.project.ianime.widget.AnimeEditText
+                android:id="@+id/manage_english_name"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/anime_name_english_hint"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.project.ianime.widget.AnimeEditText>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_4dp"
+            android:layout_marginBottom="@dimen/spacing_4dp"
+            android:orientation="horizontal">
+
+            <com.project.ianime.widget.AnimeEditText
+                android:id="@+id/manage_rate"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/spacing_8dp"
+                android:layout_weight="1"
+                android:hint="@string/anime_rate_hint"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.project.ianime.widget.AnimeEditText>
+
+            <com.project.ianime.widget.AnimeEditText
+                android:id="@+id/manage_year"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/anime_year_hint"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.project.ianime.widget.AnimeEditText>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_4dp"
+            android:layout_marginBottom="@dimen/spacing_4dp"
+            android:orientation="horizontal">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.project.ianime.widget.AnimeEditText
+                    android:id="@+id/manage_description"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/description_hint"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toStartOf="@+id/manage_country"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.project.ianime.widget.AnimeEditText>
+
+                <com.project.ianime.widget.AnimeEditText
+                    android:id="@+id/manage_country"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_8dp"
+                    android:hint="@string/anime_country_hint"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintStart_toEndOf="@+id/manage_description"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <AutoCompleteTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none"
+                        app:simpleItems="@array/country_selector" />
+
+                </com.project.ianime.widget.AnimeEditText>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_4dp"
+            android:orientation="horizontal">
+
+            <com.project.ianime.widget.AnimeEditText
+                android:id="@+id/manage_type"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/anime_type_hint"
+                app:errorEnabled="true">
+
+                <AutoCompleteTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    app:simpleItems="@array/type_selector" />
+            </com.project.ianime.widget.AnimeEditText>
+
+            <com.project.ianime.widget.AnimeEditText
+                android:id="@+id/manage_status"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_8dp"
+                android:layout_weight="1"
+                android:hint="@string/anime_status_hint">
+
+                <AutoCompleteTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    app:simpleItems="@array/status_selector" />
+
+            </com.project.ianime.widget.AnimeEditText>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spacing_52dp"
+        android:layout_marginVertical="@dimen/spacing_16dp"
+        android:padding="12dp"
+        android:text="@string/save_button_text"
+        app:iconGravity="textEnd"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

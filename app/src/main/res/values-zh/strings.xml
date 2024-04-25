@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Default -->
+    <string name="app_name">爱动画</string>
+    <string name="nav_home_title">漫厅</string>
+    <string name="nav_user_title">我的</string>
+    <string name="setting_chinese">中文</string>
+    <string name="setting_english">英文</string>
+    <string name="change_zh_message">切换中文成功</string>
+    <string name="change_en_message">切换英文成功</string>
+
+    <!-- Anime Detail Screen -->
+    <string name="intro_header_title">剧情简介</string>
+    <string name="anime_type_title">分类: %1$s</string>
+    <string name="anime_country_title">国家: %1$s</string>
+    <string name="anime_release_year_title">发行时间: %1$s</string>
+    <string name="anime_status_title">状态: %1$s</string>
+    <string name="maxim_header_title">打动的话</string>
+    <string name="episode_header_title">高光集数</string>
+    <string name="empty_description_message">我们需要迷迷提供更多关于这个动漫的信息。。。</string>
+
+    <!-- Anime Data -->
+    <string name="country_china">国漫</string>
+    <string name="country_japan">日漫</string>
+    <string name="genre_legend">神作</string>
+    <string name="genre_adventure">奇幻</string>
+    <string name="genre_love">恋爱</string>
+    <string name="genre_school">校园</string>
+    <string name="genre_energy">励志</string>
+    <string name="genre_sci">科幻</string>
+    <string name="genre_mystery">悬疑</string>
+    <string name="genre_life">日常</string>
+    <string name="status_finish">完结</string>
+    <string name="status_in_progress">更新</string>
+
+    <!-- Manage Anime Screen -->
+    <string name="add_anime_title">添加动漫</string>
+    <string name="edit_anime_title">编辑动漫</string>
+    <string name="select_image_title">选择照片 +</string>
+    <string name="anime_name_english_hint">动漫英文</string>
+    <string name="anime_name_chinese_hint">动漫中文</string>
+    <string name="anime_rate_hint">分数 (1–10)</string>
+    <string name="anime_year_hint">时间</string>
+    <string name="description_hint">简介</string>
+    <string name="anime_country_hint">地区</string>
+    <string-array name="country_selector">
+        <item>国漫</item>
+        <item>日漫</item>
+    </string-array>
+    <string name="anime_type_hint">风格</string>
+    <string-array name="type_selector">
+        <item>神作</item>
+        <item>奇幻</item>
+        <item>恋爱</item>
+        <item>校园</item>
+        <item>励志</item>
+        <item>科幻</item>
+        <item>悬疑</item>
+        <item>日常</item>
+    </string-array>
+    <string name="anime_status_hint">状态</string>
+    <string-array name="status_selector">
+        <item>完结</item>
+        <item>更新</item>
+    </string-array>
+    <string name="save_button_text">保存</string>
+    <string name="required_warning_msg">细节不可为空</string>
+
+    <!-- Exit before Dialog  -->
+    <string name="exit_dialog_message">确认直接退出吗？</string>
+    <string name="positive_button_label">取消</string>
+    <string name="negative_button_label">确认</string>
+    <string name="test_anime_country">国漫</string>
+
+    <!-- Error Messages  -->
+    <string name="generic_error_label">出错了</string>
+    <string name="generic_error_message">请稍后再试。</string>
+    <string name="connection_error_label">网络开小差了</string>
+    <string name="connection_error_message">您的网络信号不稳定，请稍后再试。</string>
+    <string name="unauthorized_error_message">您的权限不足以获取信息, 请联系管理员获取权限并稍后再试。</string>
+    <string name="not_found_error_message">抱歉，没有找到任何动漫信息，请稍后再试。</string>
+    <string name="content_oversize_error_message">上传数据失败，文件超过大小限制 (2MB)，请确认文件大小并重试。</string>
+    <string name="bad_request_error_message">您的请求失败，请稍后再试。</string>
+</resources>
