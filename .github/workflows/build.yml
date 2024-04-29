@@ -2,13 +2,13 @@ name: Build
 
 on:
   push:
-    branches: [master]
+    branches: [ master ]
     paths:
       - "app/**"
       - "gradle.properties"
       - ".github/workflows/build.yml"
   pull_request:
-    branches: [master]
+    branches: [ master ]
   workflow_dispatch:
 
 jobs:
@@ -27,8 +27,23 @@ jobs:
           distribution: "temurin"
           java-version: 17
 
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
+      - name: Cache Gradle and dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+            !~/.gradle/caches/build-cache-*
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle.kts') }}
+          restore-keys: ${{ runner.os }}-gradle-
+
+      - name: Cache build cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches/build-cache-*
+          key: ${{ runner.os }}-build-cache-${{ github.sha }}
+          restore-keys: ${{ runner.os }}-build-cache-
 
       - name: Update the permission
         run: chmod +x ./gradlew
@@ -42,8 +57,8 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: Artifact
+          name: artifact-${{ github.sha }}
           path: |
-            app/build/outputs/apk/release/
-            app/build/outputs/bundle/release/
+            app/build/outputs/apk/release/*
+            app/build/outputs/bundle/release/*
           retention-days: 3
