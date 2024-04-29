@@ -14,12 +14,32 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    env:
     strategy:
       fail-fast: false
     steps:
       - name: Check out
         uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
         with:
-          submodules: "recursive"
-          fetch-depth: 0
+          distribution: "temurin"
+          java-version: 17
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Build APK
+        run: ./gradlew assembleRelease --stacktrace
+
+      - name: Build bundle
+        run: ./gradlew bundleRelease --stacktrace
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Artifact
+          path: |
+            app/build/outputs/apk/release/
+            app/build/outputs/bundle/release/
+          retention-days: 3
