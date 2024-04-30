@@ -47,7 +47,10 @@ jobs:
 
       - name: Decode keystore
         run: |
-          echo ${{ secrets.SIGNING_KEY_STORE_BASE64 }} | base64 -di > ${{ github.workspace }}/app/keystore.jks
+#           echo ${{ secrets.SIGNING_KEY_STORE_BASE64 }} | base64 -di > ${{ github.workspace }}/app/keystore.jks
+          pwd
+          ls -ahl
+          echo ${{ secrets.SIGNING_KEY_STORE_BASE64 }} | base64 -di > ${{ github.workspace }}/keystore.jks
 
       - name: Update the permission
         run: chmod +x ./gradlew
@@ -73,7 +76,10 @@ jobs:
           SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
           SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
           SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
-        run: ./gradlew app:assemble
+        run: |
+          pwd
+          ls -ahl
+          ./gradlew app:assemble
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
