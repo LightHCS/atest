@@ -49,8 +49,7 @@ jobs:
         run: |
           pwd
           ls -ahl
-          echo ${{ secrets.SIGNING_KEY_STORE_BASE64 }} > keystore_b64.txt
-          base64 -di keystore_b64.txt > ./app/keystore.jks
+
 
       - name: Update the permission
         run: chmod +x ./gradlew
