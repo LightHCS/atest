@@ -81,6 +81,7 @@ jobs:
         run: |
           pwd
           ls -ahl
+          ls -ahl ./app
           ./gradlew app:assemble
 
       - name: Upload artifacts
