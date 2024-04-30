@@ -49,40 +49,18 @@ jobs:
         env:
           SIGNING_KEY_STORE_BASE64: ${{ secrets.SIGNING_KEY_STORE_BASE64 }}
         run: |
-          pwd
-          ls -ahl
           echo $SIGNING_KEY_STORE_BASE64 > ./keystore_b64.txt
           base64 -di ./keystore_b64.txt > ./app/keystore.jks
 
       - name: Update the permission
         run: chmod +x ./gradlew
 
-#       - name: Build APK
-#         env:
-#           SIGNING_KEY_STORE_PATH: ~/keystore.jks
-#           SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
-#           SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
-#           SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
-#         run: ./gradlew assembleRelease --stacktrace
-#
-#       - name: Build bundle
-#         env:
-#           SIGNING_KEY_STORE_PATH: ~/keystore.jks
-#           SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
-#           SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
-#           SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
-#         run: ./gradlew bundleRelease --stacktrace
-
       - name: Build APK
         env:
           SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
           SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
           SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
-        run: |
-          pwd
-          ls -ahl
-          ls -ahl ./app
-          ./gradlew app:assemble
+        run: ./gradlew app:assemble
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
@@ -90,5 +68,4 @@ jobs:
           name: artifact-${{ github.sha }}
           path: |
             app/build/outputs/apk/release/
-            app/build/outputs/bundle/release/
           retention-days: 3
