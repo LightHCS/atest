@@ -40,6 +40,14 @@ jobs:
           SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
           SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
         run: |
-          echo '${{ secrets.SIGNING_KEY_STORE_BASE64 }}' | base64 -di > ./keystore_b64.txt
-          ls -ahl
+          echo '${{ secrets.SIGNING_KEY_STORE_BASE64 }}' | base64 -di > ./app/keystore.jks
           chmod u+x ./gradlew
+          ./gradlew app:assemble
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: artifact-${{ github.sha }}
+          path: |
+            app/build/outputs/apk/release/
+          retention-days: 3
