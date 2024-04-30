@@ -51,3 +51,4 @@ jobs:
           path: |
             app/build/outputs/apk/release/
           retention-days: 3
+
