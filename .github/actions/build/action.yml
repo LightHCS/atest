@@ -1,5 +1,14 @@
 name: Build
 
+inputs:
+  keystore-name:
+    description: 'Keystore name for signing.'
+    required: true
+    default: 'keystore.jks'
+  retention-days:
+    description: 'Duration after which artifact will expire in days.'
+    default: 3
+
 runs:
   using: 'composite'
   steps:
@@ -7,7 +16,7 @@ runs:
       uses: actions/setup-java@v4
       with:
         distribution: 'temurin'
-        java-version: 17
+        java-version: '17'
 
     - name: Cache Gradle and dependencies
       uses: actions/cache@v4
@@ -25,13 +34,14 @@ runs:
         SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
         SIGNING_STORE_LOCATION: ${{ secrets.SIGNING_STORE_LOCATION }}
       run: |
-        echo '${{ secrets.SIGNING_KEY_STORE_BASE64 }}' | base64 -di > ${{ secrets.SIGNING_STORE_LOCATION }}/keystore.jks
+        echo '${{ secrets.SIGNING_KEY_STORE_BASE64 }}' | base64 -di > ${{ secrets.SIGNING_STORE_LOCATION }}/${{ inputs.keystore-name }}
         chmod u+x ./gradlew
         ./gradlew app:assemble
+      shell: bash
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
         name: artifact-${{ github.sha }}
         path: ./app/build/outputs/apk/release/
-        retention-days: 3
+        retention-days: ${{ inputs.retention-days }}
