@@ -26,4 +26,4 @@ jobs:
           signing-store-password: ${{ secrets.SIGNING_STORE_PASSWORD }}
           signing-store-location: ${{ secrets.SIGNING_STORE_LOCATION }}
           keystore-name: 'keystore.jks'
-          # retention-days: 3
+          retention-days: 3

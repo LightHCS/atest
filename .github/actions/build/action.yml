@@ -49,7 +49,6 @@ runs:
         SIGNING_STORE_PASSWORD: ${{ inputs.signing-store-password }}
         SIGNING_STORE_LOCATION: ${{ inputs.signing-store-location }}
       run: |
-        echo '${{ inputs.retention-days }}'
         echo '${{ inputs.signing-keystore-base64 }}' | base64 -di > ${{ inputs.signing-store-location }}/${{ inputs.keystore-name }}
         chmod u+x ./gradlew
         ./gradlew app:assemble
