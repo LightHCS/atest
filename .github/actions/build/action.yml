@@ -23,7 +23,6 @@ inputs:
   retention-days:
     description: 'Duration after which artifact will expire in days.'
     required: false
-    default: 3
 
 runs:
   using: 'composite'
@@ -50,6 +49,7 @@ runs:
         SIGNING_STORE_PASSWORD: ${{ inputs.signing-store-password }}
         SIGNING_STORE_LOCATION: ${{ inputs.signing-store-location }}
       run: |
+        echo '${{ inputs.retention-days }}'
         echo '${{ inputs.signing-keystore-base64 }}' | base64 -di > ${{ inputs.signing-store-location }}/${{ inputs.keystore-name }}
         chmod u+x ./gradlew
         ./gradlew app:assemble
